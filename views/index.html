@@ -1,0 +1,31 @@
+<!-- views/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Notifications</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Real-Time Notifications</h1>
+    <ul id="notifications"></ul>
+
+    <script>
+        const socket = io();
+
+        // Join user room
+        const userId = 'current_user_id'; // Replace with the actual user ID
+        socket.emit('join', userId);
+
+        socket.on('newComment', (data) => {
+            const notifications = document.getElementById('notifications');
+            const li = document.createElement('li');
+            li.textContent = `${data.author} commented: ${data.content} at ${new Date(data.timestamp).toLocaleTimeString()}`;
+            notifications.appendChild(li);
+        });
+    </script>
+</body>
+</html>
