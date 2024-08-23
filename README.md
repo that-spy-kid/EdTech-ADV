@@ -12,7 +12,10 @@ This project implements a Role-Based Access Control (RBAC) system with real-time
 - MongoDB
 
 ## PostMan API Collection
-- ```https://www.postman.com/testing-apis-3767/workspace/backend-apis-testing```
+
+```bash 
+https://www.postman.com/testing-apis-3767/workspace/backend-apis-testing
+```
 
 ### Installation
 
